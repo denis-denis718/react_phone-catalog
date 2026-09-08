@@ -26,7 +26,7 @@ export const ProductCard = ({ product, showFullPrice }: Props) => {
       <Link to={detailsUrl} className={styles.imageLink}>
         <img
           className={styles.image}
-          src={`/${product.image}`}
+          src={`./${product.image}`}
           alt={product.name}
         />
       </Link>

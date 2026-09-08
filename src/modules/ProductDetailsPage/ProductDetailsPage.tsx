@@ -81,7 +81,7 @@ export const ProductDetailsPage = () => {
         <BackButton />
         <p className={styles.message}>Product was not found</p>
         <img
-          src="/img/product-not-found.png"
+          src="./img/product-not-found.png"
           alt=""
           className={styles.notFoundImage}
         />
@@ -139,13 +139,16 @@ export const ProductDetailsPage = () => {
                 onClick={() => setSelectedImage(index)}
                 aria-label={`Show image ${index + 1}`}
               >
-                <img src={`/${image}`} alt="" />
+                <img src={`./${image}`} alt="" />
               </button>
             ))}
           </div>
 
           <div className={styles.mainImage}>
-            <img src={`/${details.images[selectedImage]}`} alt={details.name} />
+            <img
+              src={`./${details.images[selectedImage]}`}
+              alt={details.name}
+            />
           </div>
         </div>
 

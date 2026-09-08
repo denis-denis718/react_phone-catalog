@@ -4,9 +4,9 @@ import chevronRight from '../../../shared/assets/icons/chevron-right.svg';
 import styles from './PicturesSlider.module.scss';
 
 const banners = [
-  '/img/banner-home.png', // баннер из макета (iPhone 14 Pro)
-  '/img/banner-tablets.png',
-  '/img/banner-accessories.png',
+  './img/banner-home.png', // баннер из макета (iPhone 14 Pro)
+  './img/banner-tablets.png',
+  './img/banner-accessories.png',
 ];
 
 const SLIDE_INTERVAL = 5000;

@@ -12,7 +12,7 @@ function fetchJson<T>(url: string): Promise<T> {
 }
 
 export function getProducts(): Promise<Product[]> {
-  return fetchJson<Product[]>('/api/products.json');
+  return fetchJson<Product[]>('./api/products.json');
 }
 
 export function getProductsByCategory(
@@ -35,7 +35,7 @@ export function getProductDetails(
   category: ProductCategory,
   id: string,
 ): Promise<ProductDetails | null> {
-  return fetchJson<ProductDetails[]>(`/api/${category}.json`).then(
+  return fetchJson<ProductDetails[]>(`./api/${category}.json`).then(
     items => items.find(item => item.id === id) ?? null,
   );
 }

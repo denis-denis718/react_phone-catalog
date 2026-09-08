@@ -16,13 +16,17 @@ const categories: CategoryTile[] = [
   {
     title: 'Mobile phones',
     category: 'phones',
-    image: '/img/category-phones.png',
+    image: './img/category-phones.png',
   },
-  { title: 'Tablets', category: 'tablets', image: '/img/category-tablets.png' },
+  {
+    title: 'Tablets',
+    category: 'tablets',
+    image: './img/category-tablets.png',
+  },
   {
     title: 'Accessories',
     category: 'accessories',
-    image: '/img/category-accessories.png',
+    image: './img/category-accessories.png',
   },
 ];
 

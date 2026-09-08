@@ -9,6 +9,6 @@ export const NotFoundPage = () => (
       Go to Home page
     </Link>
 
-    <img src="/img/page-not-found.png" alt="" className={styles.image} />
+    <img src="./img/page-not-found.png" alt="" className={styles.image} />
   </div>
 );

@@ -12,7 +12,13 @@ export const navItems: NavItem[] = [
 ];
 
 export const footerItems: NavItem[] = [
-  { to: 'https://github.com/denis-denis718', text: 'Github' },
-  { to: '/contacts', text: 'Contacts' },
-  { to: '/rights', text: 'Rights' },
+  {
+    to: 'https://github.com/denis-denis718/react_phone-catalog',
+    text: 'Github',
+  },
+  { to: 'https://github.com/denis-denis718', text: 'Contacts' },
+  {
+    to: 'https://github.com/denis-denis718/react_phone-catalog#readme',
+    text: 'Rights',
+  },
 ];

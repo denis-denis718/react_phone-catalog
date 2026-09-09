@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 import { Product } from '../shared/types/Product';
 import { ProductDetails } from '../shared/types/ProductDetails';
@@ -27,6 +27,7 @@ const getVariantId = (namespaceId: string, capacity: string, color: string) =>
 export const ProductDetailsPage = () => {
   const { productId = '' } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const { addToCart, isInCart } = useCart();
   const { toggleFavorite, isFavorite } = useFavorites();
 
@@ -36,6 +37,16 @@ export const ProductDetailsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  // переход на другой товар (например, из "You may also like") — плавно
+  // наверх; при смене цвета/памяти того же товара скролл не трогаем
+  const keepScroll = Boolean(location.state?.keepScroll);
+
+  useEffect(() => {
+    if (!keepScroll) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [productId, keepScroll]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -94,7 +105,9 @@ export const ProductDetailsPage = () => {
   const category = categories[details.category];
 
   const goToVariant = (capacity: string, color: string) => {
-    navigate(`/product/${getVariantId(details.namespaceId, capacity, color)}`);
+    navigate(`/product/${getVariantId(details.namespaceId, capacity, color)}`, {
+      state: { keepScroll: true },
+    });
   };
 
   const techSpecs = [
@@ -120,7 +133,7 @@ export const ProductDetailsPage = () => {
       </div>
 
       <div className={styles.back}>
-        <BackButton />
+        <BackButton to={`/${details.category}`} />
       </div>
 
       <h1 className={styles.title}>{details.name}</h1>

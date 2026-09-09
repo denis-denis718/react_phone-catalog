@@ -17,17 +17,21 @@
   text-decoration: none;
 }
 
-// обрезает картинку при увеличении, чтобы она не вылезала за плитку
+// квадратная плашка с фоном; картинка внутри с отступами, целиком (contain),
+// чтобы все три категории выглядели одинаково независимо от пропорций файла
 .imageWrapper {
   overflow: hidden;
+  aspect-ratio: 1 / 1;
+  padding: 32px;
   margin-bottom: 24px;
+  background-color: var(--c-surface);
 }
 
 .image {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
+  height: 100%;
+  object-fit: contain;
   transition: transform 0.3s;
 }
 

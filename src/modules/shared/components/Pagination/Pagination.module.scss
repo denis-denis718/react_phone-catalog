@@ -64,3 +64,15 @@
 .pageActive {
   background-color: var(--c-accent);
 }
+
+// разрыв между группами страниц
+.ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 21px;
+  color: var(--c-text-muted);
+}
